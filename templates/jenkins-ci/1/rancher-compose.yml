@@ -22,27 +22,3 @@
       required: true
       description: The name of glusterfs storage
       default: "convoy-gluster"
-    - variable: "plugins"
-      type: "multiline"
-      label: "List of Plugins"
-      description: |
-        List of plugins in the format <plugin_name>[:<version>]
-        one entry per line.
-      default: |
-        credentials
-        greenballs
-        git
-        junit
-        git-client
-        github-api
-        github-oauth
-        github
-        plain-credentials
-        scm-api
-        ssh-credentials
-        ssh-slaves
-        swarm
-jenkins-primary:
-  metadata:
-    plugins: |
-      ${plugins}
