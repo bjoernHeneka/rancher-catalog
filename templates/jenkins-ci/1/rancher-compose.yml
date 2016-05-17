@@ -10,6 +10,18 @@
       required: true
       description: The ports to map
       default: "8080:8080"
+    - variable: "GLUSTER_VOLUME_NAME"
+      label: "The glusterfs volume"
+      type: "string"
+      required: true
+      description: Volume source on host
+      default: ""
+    - variable: "GLUSTER_STORAGE_NAME"
+      label: "The glusterfs storage name"
+      type: "string"
+      required: true
+      description: The name of glusterfs storage
+      default: "convoy-gluster"
     - variable: "plugins"
       type: "multiline"
       label: "List of Plugins"
