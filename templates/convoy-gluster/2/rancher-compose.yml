@@ -1,6 +1,6 @@
 .catalog:
     name: "Convoy GlusterFS"
-    version: "v0.2"
+    version: "v0.5"
     description: "Convoy GlusterFS - Docker volume plugin"
     questions:
      - variable: "VOLUME_POOL"
