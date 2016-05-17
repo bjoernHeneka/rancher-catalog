@@ -1,0 +1,7 @@
+jenkins-primary:
+  image: "jenkins:2.3"
+  volumes:
+    - ${GLUSTER_VOLUME_NAME}:/var/jenkins_home
+  volume_driver: ${GLUSTER_STORAGE_NAME}
+  environment:
+    - JAVA_OPTS=-Dhudson.footerURL=${JENKINS_URL}

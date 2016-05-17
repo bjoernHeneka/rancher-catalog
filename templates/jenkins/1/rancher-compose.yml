@@ -4,12 +4,12 @@
   description: |
     Jenkins CI management server.
   questions:
-    - variable: "PORTMAPPING"
-      label: "Portmapping to expose "
+    - variable: "JENKINS_URL"
+      label: "The url of jeknins"
       type: "string"
       required: true
-      description: The ports to map
-      default: "8080:8080"
+      description: The url of jeknins
+      default: "https://jenkins.codebee.eu"
     - variable: "GLUSTER_VOLUME_NAME"
       label: "The glusterfs volume"
       type: "string"
