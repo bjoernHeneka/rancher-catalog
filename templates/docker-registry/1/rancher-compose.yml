@@ -1,0 +1,22 @@
+.catalog:
+    name: "Docker regesitry"
+    version: "v2"
+    description: "Private docker registry with auth and frontend from https://hub.docker.com/r/konradkleine/docker-registry-frontend/"
+    questions:
+     - variable: "AUTH_PATH"
+       description: "Path to auth folder on filesystem"
+       label: "Auth folder"
+       required: true
+       type: "string"
+       default: "/opt/docker/dockerregistry/auth"
+     - variable: "GLUSTERFS_SERVICE"
+       label: "GlusterFS Service"
+       type: "service"
+       required: true
+       description: Service that is running GlusterFS
+
+
+dockerregistry:
+  scale: 1
+dockerregistry-frontend:
+  scale: 1

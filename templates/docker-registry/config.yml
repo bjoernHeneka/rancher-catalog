@@ -1,0 +1,5 @@
+name: docker registry and the frontend
+description: |
+  official docker registry and knk frontend
+version: 2.3
+category: Continuous Integration
