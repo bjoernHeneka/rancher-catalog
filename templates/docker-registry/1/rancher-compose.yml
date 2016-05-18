@@ -9,11 +9,6 @@
        required: true
        type: "string"
        default: "/opt/docker/dockerregistry/auth"
-     - variable: "GLUSTERFS_SERVICE"
-       label: "GlusterFS Service"
-       type: "service"
-       required: true
-       description: Service that is running GlusterFS
 
 
 dockerregistry:
