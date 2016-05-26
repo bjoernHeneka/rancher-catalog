@@ -1,0 +1,41 @@
+.catalog:
+  name: Jenkins
+  version: 2.3
+  description: |
+    Jenkins CI management server.
+  questions:
+    - variable: "POSTGRES_PASSWORD"
+      label: "Password for postgres user"
+      type: "string"
+      required: true
+      description: Password for postgres user
+    - variable: "REPLI_PASSWORD"
+      label: "Password for replication user"
+      type: "string"
+      required: true
+      description: Password for replication user
+
+postrgress-master-lb-5432:
+  load_balancer_config:
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
+postrgress-phppgadmin:
+  scale: 1
+postgresql-slave:
+  scale: 1
+postgresql-master:
+  scale: 1
+postrgress-slave-lb-5433:
+  load_balancer_config:
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000

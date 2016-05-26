@@ -1,0 +1,8 @@
+name: "Postgress cluster"
+description: |
+  Postgress cluster
+version: 9.4-21
+category: Security
+maintainer: "Jan Broer <jan@festplatte.eu.org>"
+license: The MIT License
+projectURL: http://www.github.com/janeczku/rancher-letsencrypt
