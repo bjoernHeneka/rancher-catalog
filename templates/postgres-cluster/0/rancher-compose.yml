@@ -24,8 +24,6 @@ postrgress-master-lb-5432:
     unhealthy_threshold: 3
     healthy_threshold: 2
     response_timeout: 2000
-postrgress-phppgadmin:
-  scale: 1
 postgresql-slave:
   scale: 1
 postgresql-master:

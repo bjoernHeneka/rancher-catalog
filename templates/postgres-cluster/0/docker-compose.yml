@@ -1,6 +1,6 @@
 postrgress-master-lb-5432:
   ports:
-  - 5432:5432
+  - 5432:5432/tcp
   labels:
     io.rancher.scheduler.global: 'true'
   tty: true
@@ -8,53 +8,39 @@ postrgress-master-lb-5432:
   links:
   - postgresql-master:postgresql-master
   stdin_open: true
-postrgress-phppgadmin:
-  log_driver: ''
-  labels:
-    io.rancher.container.pull_image: always
-  tty: true
-  log_opt: {}
-  image: maxexcloo/phppgadmin
-  links:
-  - postgresql-master:postgresql
-  stdin_open: true
 postgresql-slave:
   environment:
-    REPLICATION_MODE: slave
-    REPLICATION_SSLMODE: prefer
     REPLICATION_HOST: master
-    REPLICATION_PORT: '5432'
-    REPLICATION_USER: repluser
+    REPLICATION_MODE: slave
     REPLICATION_PASS: ${REPLI_PASSWORD}
-  log_driver: ''
+    REPLICATION_PORT: '5432'
+    REPLICATION_SSLMODE: prefer
+    REPLICATION_USER: repluser
   labels:
-    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/postgresql-master,io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/postgresql-master,io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.scheduler.affinity:host_label_ne: type=old
   tty: true
-  log_opt: {}
   image: sameersbn/postgresql:9.4-21
   links:
   - postgresql-master:master
   stdin_open: true
 postgresql-master:
   environment:
-    DB_USER: user
-    DB_PASS: password
     DB_NAME: testdb
+    DB_PASS: password
+    DB_USER: user
     PG_PASSWORD: ${POSTGRES_PASSWORD}
-    REPLICATION_USER: repluser
     REPLICATION_PASS: ${REPLI_PASSWORD}
-  log_driver: ''
+    REPLICATION_USER: repluser
   labels:
     io.rancher.container.pull_image: always
   tty: true
-  log_opt: {}
   image: sameersbn/postgresql:9.4-21
   stdin_open: true
 postrgress-slave-lb-5433:
   ports:
-  - 5433:5432
+  - 5433:5432/tcp
   labels:
     io.rancher.scheduler.global: 'true'
   tty: true
