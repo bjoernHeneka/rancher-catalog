@@ -25,7 +25,7 @@ postgresql-slave:
     REPLICATION_HOST: master
     REPLICATION_PORT: '5432'
     REPLICATION_USER: repluser
-    REPLICATION_PASS: pyg=7*P<dH\}e)e,
+    REPLICATION_PASS: ${REPLI_PASSWORD}
   log_driver: ''
   labels:
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/postgresql-master,io.rancher.stack_service.name=$${stack_name}/$${service_name}
