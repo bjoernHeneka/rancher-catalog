@@ -1,0 +1,32 @@
+.catalog:
+  name: "Jenkins GlusterFS"
+  version: "2.7.1"
+  description: "Jenkins CI server with backup contaienr into glusterFs Volume"
+  questions:
+    - variable: "VOLUME_NAME"
+      description: "Name of the Gluster volume"
+      label: "Volume Name"
+      required: true
+      default: "jenkinsbackup"
+      type: "string"
+    - variable: "VOLUME_DRIVER"
+      description: "Name of the volume driver"
+      label: "Volume driver"
+      required: true
+      default: "convoy-gluster"
+      type: "string"
+
+jenkins:
+  scale: 1
+  health_check:
+    port: 8080
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+jenkins-volume:
+  scale: 1
+jenkins-backup:
+  scale: 1

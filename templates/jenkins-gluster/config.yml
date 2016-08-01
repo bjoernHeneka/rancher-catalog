@@ -1,5 +1,5 @@
 name: Jenkins GlusterFS
 description: |
   Jenkins CI server with backup contaienr into glusterFs Volume
-version: 2.3
+version: 2.7.1
 category: Continuous Integration
